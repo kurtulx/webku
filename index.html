@@ -9,6 +9,8 @@
         color: white;
         background: black;
         align-items: center;
+        display: flex;
+        flex-direction: column;
         }
         .huruf{
         text-align: center;
@@ -20,12 +22,12 @@
         background: red;
         left: 50%;
         transform: translate(-50%, -50%);
-        height: 10%;
-        padding: 10px;
-        margin: 20px;
+        height: %;
+        padding: 15px;
+        margin: 25px;
         border: 5px solid white;
         border-radius: 10px;
-        width: 25%;
+        width: 20%;
         text-align: center;
         }
         .LinkTele img {
@@ -33,6 +35,8 @@
         height: 20px;
         }
         .btnShow {
+      display: block;
+      margin: 0 auto;       /* pastikan di tengah */
       background: blue;
       color: white;
       padding: 10px 20px;
@@ -42,10 +46,10 @@
       font-weight: bold;
     }
 
-    /* Container gambar di bawah LinkTele */
     .gambar-container {
       width: 75vw;
       max-width: 600px;
+      margin: 0 auto;       /* center juga */
       overflow: hidden;
       height: 0;
       opacity: 0;
@@ -54,7 +58,7 @@
     }
 
     .gambar-container.show {
-      height: 300px; /* atur tinggi sesuai kebutuhan */
+      height: 30%;
       opacity: 1;
     }
 
@@ -74,19 +78,19 @@
     <div>
     <a href="https://t.me/Viper_ZXC" target="_blank" class="LinkTele" onclick="event.stopPropagation()">
     <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram">
-    <span>Telegram</span>
+    <span>Join Telegram</span>
   </a>
     <br>
     <br>
     <br>
     <br>
-    
+    <br>
     <!-- Tombol tampilkan gambar -->
-  <button class="btnShow" onclick="tampilkanGambar()">Tampilkan Gambar</button>
+  <button class="btnShow" onclick="tampilkanGambar()">Yang ingin donasi bisa klik ini</button>
 
   <!-- Gambar yang muncul di bawah LinkTele -->
   <div class="gambar-container" id="gambarBox">
-    <img src="https://www.w3schools.com/w3images/fjords.jpg" alt="Contoh Gambar">
+    <img src="qris.jpeg" alt="Contoh Gambar">
   </div>
 
   <script>
