@@ -18,8 +18,8 @@
         position: absolute;
         color: white;
         background: red;
-        top: 50%;
         left: 50%;
+        transform: translate(-50%, -50%);
         height: 10%;
         padding: 10px;
         margin: 20px;
@@ -40,60 +40,30 @@
       border-radius: 8px;
       cursor: pointer;
       font-weight: bold;
-      z-index: 3;
     }
 
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.6s ease;
-    }
-
-    .overlay.show {
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    .gambar-box {
+    /* Container gambar di bawah LinkTele */
+    .gambar-container {
       width: 75vw;
-      height: 75vh;
-      background: black;
-      border-radius: 12px;
+      max-width: 600px;
       overflow: hidden;
-      transform: translateY(-100%);
+      height: 0;
       opacity: 0;
-      transition: transform 0.8s ease, opacity 0.8s ease;
+      transition: height 0.8s ease, opacity 0.8s ease;
+      border-radius: 12px;
     }
 
-    .overlay.show .gambar-box {
-      transform: translateY(0);
+    .gambar-container.show {
+      height: 300px; /* atur tinggi sesuai kebutuhan */
       opacity: 1;
     }
 
-    .gambar-box img {
+    .gambar-container img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
-    }
-
-    .closeBtn {
-      position: absolute;
-      top: 15px;
-      right: 20px;
-      font-size: 28px;
-      color: white;
-      cursor: pointer;
-      z-index: 3;
+      border-radius: 12px;
     }
     </style>
 </head>
@@ -102,31 +72,26 @@
         <h1>Mau ngapain? mending join aja grupku dengan klik Link dibawah</h1>
         </div>
     <div>
-    <a href="https://t.me/Viper_Network" class="LinkTele">
+    <a href="https://t.me/Viper_ZXC" target="_blank" class="LinkTele" onclick="event.stopPropagation()">
     <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram">
-    <span>Join Telegram</span>
+    <span>Telegram</span>
+  </a>
     <br>
     <br>
     <br>
     <br>
     
-    <button class="btnShow" onclick="tampilkanGambar()">Tampilkan Gambar</button>
+    <!-- Tombol tampilkan gambar -->
+  <button class="btnShow" onclick="tampilkanGambar()">Tampilkan Gambar</button>
 
-  <div class="overlay" id="overlay">
-    <div class="closeBtn" onclick="tutupGambar()">✖</div>
-    <div class="gambar-box">
-      <!-- ✅ Gambar dari W3Schools (pasti tampil) -->
-      <img src="https://www.w3schools.com/w3images/fjords.jpg" alt="Contoh Gambar">
-    </div>
+  <!-- Gambar yang muncul di bawah LinkTele -->
+  <div class="gambar-container" id="gambarBox">
+    <img src="https://www.w3schools.com/w3images/fjords.jpg" alt="Contoh Gambar">
   </div>
 
   <script>
     function tampilkanGambar() {
-      document.getElementById("overlay").classList.add("show");
-    }
-
-    function tutupGambar() {
-      document.getElementById("overlay").classList.remove("show");
+      document.getElementById("gambarBox").classList.toggle("show");
     }
   </script>
         
